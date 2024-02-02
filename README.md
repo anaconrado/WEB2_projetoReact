@@ -1,8 +1,8 @@
-#WEB2_projetoReact#
+# WEB2_projetoReact #
 
 Repositório para projeto react da matéria de Desenvolvimento de Softwares Para Web 2
 
-##Participantes##
+## Participantes ##
 
 - Ana Luisa Conrado Ferreira de Oliveira - 801583 
 
