@@ -395,20 +395,11 @@
   
   /*Align div with the bottom of the screen*/
   .battleFieldPlayerImage {
-    width: 100%;
-    height: 70%;
-    flex-wrap: wrap;
-    display: flex;
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-    justify-content: center;
-    align-items: center;
+
   }
   
   .battleFieldPlayerImage img{
-    width: 80%;
-    height: 100%;
-    object-fit: contain;
+    
   }
   
   /*Align everything in middle, make images size constant*/
@@ -420,6 +411,7 @@
     flex-direction: column;
     width: 50%;
     height: 100%;
+    
   }
   
   .battleFieldPlayerNameNick{
@@ -444,12 +436,7 @@
     display: flex;
   }
   
-  .battleFieldEnemyImageAll img{
-    width: 80%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
+ 
   
   /*------------------------------------------------------------------
   [Personagem ]*/

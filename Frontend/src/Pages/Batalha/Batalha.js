@@ -8,6 +8,8 @@ import planoDeFundo1 from "../../Imagens/Batalhas/Thunderstorm.jpg"
 import planoDeFundo2 from "../../Imagens/Batalhas/Clouds.jpg"
 import planoDeFundo3 from "../../Imagens/Batalhas/Snow.jpg"
 import planoDeFundo4 from "../../Imagens/Batalhas/Clear.jpg"
+import Jogador1 from "../../Imagens/Fundos/Fundo Floresta.png"
+import Jogador2 from "../../Imagens/Fundos/Fundo Floresta.png"
 
 
 import Menu from "../../Components/Menu/Menu.js"
@@ -74,13 +76,13 @@ export default function Batalhar() {
             <Menu />
           
           <div className={styles.containerBattle}>
-            <div className={styles.battleField} id="currentWeatherImage" style={{ backgroundImage: weatherBackground }} >
+            <div className={styles.battleField} id="currentWeatherImage" style={{ backgroundImage: `url(${weatherBackground})` }} >
               <div className={styles.battleFieldPlayer}>
                 <div className={styles.battleFieldPlayerName}>
                   <h1 className={styles.battleFieldPlayerNameNick}>Notarg</h1>
                 </div>
                 <div className={styles.battleFieldPlayerImage}>
-                  <img className={styles.battleFieldEnemyImageAll} src="" alt="Player 1" />
+                  <img className={styles.battleFieldEnemyImageAll} src={Jogador1} alt="Player 1" />
                 </div>
               </div>
               <div className={styles.battleFieldEnemy}>
@@ -88,7 +90,7 @@ export default function Batalhar() {
                   <h1 className={styles.battleFieldPlayerNameNick}>Portix</h1>
                 </div>
                 <div className={styles.battleFieldEnemyImage}>
-                  <img className={styles.battleFieldEnemyImageAll} src="" alt="Player 1" />
+                  <img className={styles.battleFieldEnemyImageAll} src={Jogador1} alt="Player 1" />
                 </div>
               </div>
             </div>
