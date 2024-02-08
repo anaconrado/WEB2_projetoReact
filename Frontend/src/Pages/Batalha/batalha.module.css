@@ -393,14 +393,67 @@
     overflow: auto;
   }
   
-  /*Align div with the bottom of the screen*/
-  .battleFieldPlayerImage {
-
-  }
-  
-  .battleFieldPlayerImage img{
+  .characterDisplay {
     
-  }
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.pele {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 40%;
+}
+
+.planoDeFundo {
+    border: #111 solid 5px;
+    max-width: 500px;
+    max-height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.cabelo {
+    width: 40%;
+    position: absolute;
+    z-index: 3;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.olho {
+    width: 40%;
+    position: absolute;
+    z-index: 3;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.roupa {
+    width: 40%;
+    position: absolute;
+    z-index: 3;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
   
   /*Align everything in middle, make images size constant*/
   .battleFieldEnemy{
@@ -427,7 +480,7 @@
   /*Align div with the bottom of the screen*/
   .battleFieldEnemyImageAll{
     width: 100%;
-    height: 70%;
+    height: 100%;
     padding-top: 7rem;
     padding-bottom: 7rem;
     justify-content: center;

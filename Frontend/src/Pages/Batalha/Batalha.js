@@ -2,14 +2,41 @@ import React, { useEffect, useState } from "react";
 
 import styles from "./batalha.module.css"
 
-import { FaCaretLeft, FaCaretRight } from "react-icons/fa6";
 
-import planoDeFundo1 from "../../Imagens/Batalhas/Thunderstorm.jpg"
-import planoDeFundo2 from "../../Imagens/Batalhas/Clouds.jpg"
-import planoDeFundo3 from "../../Imagens/Batalhas/Snow.jpg"
-import planoDeFundo4 from "../../Imagens/Batalhas/Clear.jpg"
+import planoDeFundo33 from "../../Imagens/Batalhas/Thunderstorm.jpg"
+import planoDeFundo44 from "../../Imagens/Batalhas/Clouds.jpg"
+import planoDeFundo22 from "../../Imagens/Batalhas/Snow.jpg"
+import planoDeFundo11 from "../../Imagens/Batalhas/Clear.jpg"
 import Jogador1 from "../../Imagens/Fundos/Fundo Floresta.png"
 import Jogador2 from "../../Imagens/Fundos/Fundo Floresta.png"
+
+import planoDeFundo1 from "../../Imagens/Fundos/Fundo Floresta.png"
+import planoDeFundo2 from "../../Imagens/Fundos/Fundo Madeira.png"
+import planoDeFundo3 from "../../Imagens/Fundos/Fundo Noturno.png"
+
+import Cabelo1 from "../../Imagens/Cavalheiro/CabeloC/BotasAzuis.png"
+import Cabelo2 from "../../Imagens/Cavalheiro/CabeloC/BotasNormais.png"
+import Cabelo3 from "../../Imagens/Mago/Cabelo/BarbaCinza.png"
+import Cabelo4 from "../../Imagens/Mago/Cabelo/BarbaVemelha.png"
+
+import Olhos1 from "../../Imagens/Cavalheiro/OlhosC/EspadaCinza.png"
+import Olhos2 from "../../Imagens/Cavalheiro/OlhosC/EspadaRoxa.png"
+import Olhos3 from "../../Imagens/Cavalheiro/OlhosC/EspadaVermelha.png"
+import Olhos4 from "../../Imagens/Mago/Olhos/OlhosAzuis.png"
+import Olhos5 from "../../Imagens/Mago/Olhos/OlhosVerdes.png"
+import Olhos6 from "../../Imagens/Mago/Olhos/OlhosVermelhos.png"
+
+import Pele1 from "../../Imagens/Cavalheiro/PeleC/ArmaduraCinza.png"
+import Pele2 from "../../Imagens/Cavalheiro/PeleC/ArmaduraVermelha.png"
+import Pele3 from "../../Imagens/Mago/Pele/Pele1.png"
+import Pele4 from "../../Imagens/Mago/Pele/Pele2.png"
+
+import Roupa1 from "../../Imagens/Cavalheiro/RoupaC/EscudoNormal.png"
+import Roupa2 from "../../Imagens/Cavalheiro/RoupaC/EscudoPreto.png"
+import Roupa3 from "../../Imagens/Cavalheiro/RoupaC/EscudoRoxo.png"
+import Roupa4 from "../../Imagens/Mago/Roupas/RoupaLaranja.png"
+import Roupa5 from "../../Imagens/Mago/Roupas/RoupaVerde.png"
+import Roupa6 from "../../Imagens/Mago/Roupas/RoupaVermelha.png"
 
 
 import Menu from "../../Components/Menu/Menu.js"
@@ -18,6 +45,39 @@ const API_KEY = "493ede756023e48f8ca7833fc3cc9321" // API key for OpenWeatherMap
 
 
 export default function Batalhar() {
+
+
+    const opcoes = {
+        Cavalheiro: {
+            cabelo: [Cabelo1, Cabelo2],
+            pele: [Pele1, Pele2],
+            olho: [Olhos1, Olhos2, Olhos3, Olhos4, Olhos5, Olhos6],
+            roupa: [Roupa1, Roupa2, Roupa3],
+        },
+        Mago: {
+            cabelo: [Cabelo3, Cabelo4],
+            pele: [Pele3, Pele4],
+            olho: [Olhos1, Olhos2, Olhos3, Olhos4, Olhos5, Olhos6],
+            roupa: [Roupa4, Roupa5, Roupa6],
+        },
+        planoDeFundo: [planoDeFundo1, planoDeFundo2, planoDeFundo3]
+    };
+
+    const [characterConfig, setCharacterConfig] = useState({
+        cabelo: 0,
+        pele: 0,
+        olho: 0,
+        roupa: 0,
+        planoDeFundo: 0
+    });
+
+    useEffect(() => {
+        const savedConfig = localStorage.getItem('characterConfig');
+        if (savedConfig) {
+            setCharacterConfig(JSON.parse(savedConfig));
+        }
+    }, []);
+
 
     const [weatherBackground, setWeatherBackground] = useState('');
 
@@ -39,19 +99,20 @@ export default function Batalhar() {
               .then(data => {
                 // Obter os detalhes do clima atual
                 const weather = data.list[0].weather[0].main;
+                console.log(weather)
   
   
                 if (weather === "Clear") {
-                  setWeatherBackground(planoDeFundo1);
+                  setWeatherBackground(planoDeFundo11);
                   console.log("Teste");
                 } else if (weather === "Snow") {
-                  setWeatherBackground(planoDeFundo2);
+                  setWeatherBackground(planoDeFundo22);
                   console.log("Teste2");
                 } else if (weather === "Thunderstorm" || weather === "Drizzle" || weather === "Rain") {
-                  setWeatherBackground(planoDeFundo3);
+                  setWeatherBackground(planoDeFundo33);
                   console.log("Teste3");
                 } else if (weather === "Clouds" || weather === "Mist" || weather === "Smoke" || weather === "Haze" || weather === "Dust" || weather === "Fog" || weather === "Sand" || weather ==="Ash" || weather === "Squall" || weather === "Tornado") {
-                    setWeatherBackground(planoDeFundo4);
+                    setWeatherBackground(planoDeFundo44);
                   console.log("Teste4");
                 }
               })
@@ -81,16 +142,28 @@ export default function Batalhar() {
                 <div className={styles.battleFieldPlayerName}>
                   <h1 className={styles.battleFieldPlayerNameNick}>Notarg</h1>
                 </div>
-                <div className={styles.battleFieldPlayerImage}>
-                  <img className={styles.battleFieldEnemyImageAll} src={Jogador1} alt="Player 1" />
+                <div className={styles.battleFieldEnemyImageAll}>
+                    <div className={styles.characterDisplay}>
+                        <img className={styles.planoDeFundo} src={opcoes.planoDeFundo[characterConfig.planoDeFundo]} alt="Background"/>
+                        <img className={styles.cabelo} src={opcoes.Cavalheiro.cabelo[characterConfig.cabelo]} alt="Hair"/>
+                        <img className={styles.pele} src={opcoes.Cavalheiro.pele[characterConfig.pele]} alt="Skin"/>
+                        <img className={styles.olho} src={opcoes.Cavalheiro.olho[characterConfig.olho]} alt="Eyes"/>
+                        <img className={styles.roupa} src={opcoes.Cavalheiro.roupa[characterConfig.roupa]} alt="Outfit"/>
+                    </div>
                 </div>
               </div>
               <div className={styles.battleFieldEnemy}>
                 <div className={styles.battleFieldEnemyName}>
                   <h1 className={styles.battleFieldPlayerNameNick}>Portix</h1>
                 </div>
-                <div className={styles.battleFieldEnemyImage}>
-                  <img className={styles.battleFieldEnemyImageAll} src={Jogador1} alt="Player 1" />
+                <div className={styles.battleFieldEnemyImageAll}>
+                    <div className={styles.characterDisplay}>
+                        <img className={styles.planoDeFundo} src={opcoes.planoDeFundo[0]} alt="Background"/>
+                        <img className={styles.cabelo} src={opcoes.Cavalheiro.cabelo[1]} alt="Hair"/>
+                        <img className={styles.pele} src={opcoes.Cavalheiro.pele[1]} alt="Skin"/>
+                        <img className={styles.olho} src={opcoes.Cavalheiro.olho[1]} alt="Eyes"/>
+                        <img className={styles.roupa} src={opcoes.Cavalheiro.roupa[1]} alt="Outfit"/>
+                    </div>
                 </div>
               </div>
             </div>

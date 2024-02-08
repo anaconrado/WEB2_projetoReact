@@ -5,6 +5,7 @@ import Login from "./Pages/Login/Login.js";
 import Cadastro from "./Pages/Cadastro/Cadastro.js";
 import Costumizacao from "./Pages/Costumizacao/Costumizacao.js";
 import Batalhar from "./Pages/Batalha/Batalha.js";
+import Trelo from "./Pages/Trelo/Trelo.js";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/costumizacao" element={<Costumizacao />} />
           <Route path="/batalha" element={<Batalhar />} />
+          <Route path="/trelo" element={<Trelo />} />
     </Routes>
     </BrowserRouter>
   );
