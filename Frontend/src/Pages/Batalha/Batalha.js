@@ -4,10 +4,10 @@ import styles from "./batalha.module.css"
 
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa6";
 
-import planoDeFundo1 from "../../Assets/Personagem/PlanoDeFundo/Tela Batalha Chuvosa.jpg"
-import planoDeFundo2 from "../../Assets/Personagem/PlanoDeFundo/Tela Batalha Nublado.jpg"
-import planoDeFundo3 from "../../Assets/Personagem/PlanoDeFundo/Tela Tabalha Neve.jpg"
-import planoDeFundo4 from "../../Assets/Personagem/PlanoDeFundo/Tela Batalha.jpg"
+import planoDeFundo1 from "../../Imagens/Batalhas/Thunderstorm.jpg"
+import planoDeFundo2 from "../../Imagens/Batalhas/Clouds.jpg"
+import planoDeFundo3 from "../../Imagens/Batalhas/Snow.jpg"
+import planoDeFundo4 from "../../Imagens/Batalhas/Clear.jpg"
 
 
 import Menu from "../../Components/Menu/Menu.js"
@@ -49,7 +49,7 @@ export default function Batalhar() {
                   setWeatherBackground(planoDeFundo3);
                   console.log("Teste3");
                 } else if (weather === "Clouds" || weather === "Mist" || weather === "Smoke" || weather === "Haze" || weather === "Dust" || weather === "Fog" || weather === "Sand" || weather ==="Ash" || weather === "Squall" || weather === "Tornado") {
-                    setWeatherBackground("url('../../Assets/Personagem/PlanoDeFundo/Tela Batalha.jpg')");
+                    setWeatherBackground(planoDeFundo4);
                   console.log("Teste4");
                 }
               })
@@ -88,7 +88,7 @@ export default function Batalhar() {
                   <h1 className={styles.battleFieldPlayerNameNick}>Portix</h1>
                 </div>
                 <div className={styles.battleFieldEnemyImage}>
-                  <img className={styles.battleFieldEnemyImageAll} src="../../Assets/Personagem/PlanoDeFundo/Tela Batalha.jpg" alt="Player 1" />
+                  <img className={styles.battleFieldEnemyImageAll} src="" alt="Player 1" />
                 </div>
               </div>
             </div>

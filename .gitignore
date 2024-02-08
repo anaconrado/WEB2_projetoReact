@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/Frontend/node_modules
+/Frontend/package-lock.json
+/Frontend/package.json
 /.pnp
 .pnp.js
 
