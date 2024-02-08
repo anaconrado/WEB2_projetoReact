@@ -9,7 +9,7 @@ import planoDeFundo2 from "../../Assets/Personagem/PlanoDeFundo/Tela Batalha Nub
 import planoDeFundo3 from "../../Assets/Personagem/PlanoDeFundo/Tela Tabalha Neve.jpg"
 import planoDeFundo4 from "../../Assets/Personagem/PlanoDeFundo/Tela Batalha.jpg"
 
-import Menu from "../../Components/Menu.js"
+import Menu from "../../Components/Menu/Menu.js"
 
 
 

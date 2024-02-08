@@ -84,8 +84,9 @@ button {
     color: white;
 }
 
-h1 {
+.header {
     color: #333333;
+    margin-bottom: 1rem;
 }
 
 .cadastroContainer {
@@ -96,7 +97,7 @@ h1 {
     justify-content: center;
 }
 
-a {
+.cadastroLink {
     margin-right: 0.3rem;
 }
 
