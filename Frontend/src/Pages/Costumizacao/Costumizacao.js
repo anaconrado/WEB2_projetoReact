@@ -103,18 +103,10 @@ export default function Costumizacao() {
         </div>
     );
 
-    /*
-    
-
-    function salvaPersonagem() {
-        for (var part in currentOption) {
-            if (currentOption.hasOwnProperty(part)) {
-                localStorage.setItem(part, currentOption[part]);
-            }
-        }
-        console.log('Character saved!');
-    }
-    */
+    const saveCharacterConfig = () => {
+        const configToSave = JSON.stringify(currentOptions);
+        localStorage.setItem('characterConfig', configToSave);
+      };
     
     return(
         <div className={styles.costumizacaoContainer}>
@@ -135,7 +127,7 @@ export default function Costumizacao() {
                     {Object.keys(opcoes[characterType]).map(part => (
                         renderCustomizationCategory(part, part)
                     ))}
-                    <button className={styles.botaoSalvar}>SALVAR</button>
+                    <button className={styles.botaoSalvar} onClick={saveCharacterConfig}>SALVAR</button>
                 </div>
             </div>
         </div>
