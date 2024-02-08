@@ -76,7 +76,7 @@ input {
     top: 17px;
 }
 
-button {
+.cadastroButton {
     width: 100%;
     height: 3rem;
     margin-top: 2em;

@@ -65,7 +65,7 @@ export default function Login() {
                             </div>
                         </div>
                         <div className={styles.buttonContainer}>
-                            <button onClick={handleLogin}> LOGIN </button>
+                            <button className={styles.loginButton} onClick={handleLogin}> LOGIN </button>
                         </div>
                         {error && ( 
                             <ErrorMessage message="Username ou senha inválida" />
