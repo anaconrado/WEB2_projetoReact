@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import styles from "./cadastro.module.css"
 
-import Logo from "../../Assets/img-01.png"
+import Logo from "../../Imagens/img-01.png"
 
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 

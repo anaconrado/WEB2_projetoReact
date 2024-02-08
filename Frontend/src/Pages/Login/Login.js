@@ -4,7 +4,7 @@ import { FaArrowRightLong, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 import styles from "./login.module.css"
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage.js";
-import Logo from "../../Assets/img-01.png"
+import Logo from "../../Imagens/img-01.png"
 
 export default function Login() {
 

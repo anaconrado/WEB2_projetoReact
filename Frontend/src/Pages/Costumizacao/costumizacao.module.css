@@ -31,28 +31,81 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.rigthContainer {
+.pele {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 40%;
+}
+
+.planoDeFundo {
+    max-width: 80%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.cabelo {
+    width: 40%;
+    position: absolute;
+    z-index: 3;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.olho {
+    width: 40%;
+    position: absolute;
+    z-index: 3;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.roupa {
+    width: 40%;
+    position: absolute;
+    z-index: 3;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rightContainer {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem;
 }
 
 .categoria {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 1rem 0 1rem 0;
+    margin: 0.5rem 0 0.5rem 0;
 }
 
-h1 {
-    margin-bottom: 0;
+.header {
+    margin: 0;
     color: #7A6C9D;
+    font-size: 1.8rem;
+}
+
+.botaoType {
+    width: 45%;
 }
 
 .botaoSalvar {
@@ -70,12 +123,20 @@ h1 {
     font-size: 2.5rem;
 }
 
+.characterTypeSelector {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
 @media(max-width: 1300px) {
     .costumizacaoWrap {
         width: 80%;
     }
 
-    h1 {
+    .header {
         font-size: 1.5rem;
     }
 
@@ -103,7 +164,7 @@ h1 {
         height: 75%;
     }
 
-    .rigthContainer {
+    .rightContainer {
         width: 100%;
         padding: 0;
         height: 50%;
@@ -119,8 +180,8 @@ h1 {
         margin-bottom: 0.3rem;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    .header {
+        font-size: 1.3rem;
     }
 
     .iconeSeta {
@@ -130,5 +191,24 @@ h1 {
     .botaoSalvar {
         width: 40%;
         height: 2.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .characterTypeSelector {
+        justify-content: space-evenly;
+        margin-bottom: 0.3rem;
+    }
+
+    .botaoType {
+        width: 30%;
+        height: 2rem;
+        margin-top: 0rem
+    }
+}
+
+
+@media(max-width: 450px) {
+    .botaoType {
+        width: 40%;
     }
 }
