@@ -1,0 +1,810 @@
+
+
+
+
+  
+  /*//////////////////////////////////////////////////////////////////
+  [ RESTYLE TAG ]*/
+  
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+  }
+
+  
+
+  /*---------------------------------------------*/
+  button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  iframe {
+    border: none !important;
+  }
+  
+  
+  
+  /*//////////////////////////////////////////////////////////////////
+  [ login ]*/
+  
+  .buttonBatlle{
+    width: 100%;
+    height: 50px;
+    padding-bottom: 100px ;
+    
+  }
+  
+  .buttonBatlleB{
+    font-family: Montserrat-Bold;
+    font-size: 1rem;
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    border-radius: 0.8rem;
+    background-color: #8f51ebec;
+    border: #111 solid 2px;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }
+  
+  .limiter {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+  }
+  
+  .fundoFalso {
+    padding-top: 100px;
+    width: 1px;
+    height: 1px;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+  }
+  
+  
+  .containerStats100 {
+    width: 100%;
+    height: 30%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    padding: 5px 15px;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    
+  
+  }
+  /*Container that has half a white background and half purple*/
+  .wrapStats100 {
+    border: #111 solid 2px;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    /* padding: 177px 130px 33px 95px; */
+  }
+  
+  /*A stats menu that'll be 50% of wrapStats100, aligning everything in middle*/
+  .statsMenu{
+    border: #111 solid 2px;
+    background-color: #fff;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 10px 10px;
+  
+  }
+  
+  .statsMenu img{
+    border: #111 solid 2px;
+  }
+  
+  .statsMenu li{
+    padding-left: 1rem;
+  }
+  
+  
+  
+  .container-quickMenu {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    padding: 5px 15px;
+  }
+  
+  
+  .wrap-quickMenu {
+    border: #111 solid 2px;
+    width: 25rem;
+    height: 3rem;
+    background: rgb(204, 195, 214);
+    border-radius: 10px;
+    overflow: hidden;
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 40px;
+    justify-content: space-between;
+    color: rgb(132, 24, 182);
+    /* padding: 1px; */
+  }
+  
+  .wrap-quickMenu ul li{
+  
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .title-trelo{
+    font-family: Poppins-Bold;
+    font-size: 1.2rem;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+  
+    width: 100%;
+    display: block;
+    /*padding-bottom: 54px;*/
+  }
+  
+  .container-trelo {
+    width: 100%;
+    height: 50%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    padding: 5px 5px;
+  }
+  
+  .wrap-treloGrid {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: grid;
+    margin-left: 10px;
+    grid-template-columns: 25% 25% 25% 25%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* padding: 1px; */
+  }
+  
+  .wrap-treloGrid > div
+  {
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    text-align: left;
+    padding: 5px 10px;
+  }
+  
+  .list-items {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    background: rgba(12, 84, 96, 0);
+    flex-direction: column;
+    align-content: start;
+    /*padding: 0 0.6rem 0.5rem;*/
+    overflow-y: auto;
+  }
+  
+  .list-items li {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.3;
+    background-color: #c5c5c5;
+    padding: 0.65rem 0.6rem;
+    color: #4d4d4d;
+    border-bottom: 0.1rem solid #ccc;
+    border-radius: 0.3rem;
+    margin-bottom: 0.6rem;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .list-items li:last-of-type {
+    margin-bottom: 0;
+  }
+  
+  .list-items li:hover {
+    background-color: #eee;
+  }
+  
+  /* Track */
+  .list-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle on hover */
+  .list-items::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  .list-items::-webkit-scrollbar {
+    width: 1.6rem;
+  }
+  
+  .list-items::-webkit-scrollbar-thumb {
+    background: #2aa9f5;
+    /*border-right: 0.6rem solid #e2e4e6;*/
+  }
+  
+  
+  .trelo1{
+    background:#fff;
+    border: #111 solid 2px;
+    margin-right: 10px;
+  
+  }
+  
+  .trelo2{
+    background-color: #8636ff;
+    border: #111 solid 2px;
+    margin-right: 10px;
+  }
+  
+  .trelo3{
+    background:#fff;
+    border: #111 solid 2px;
+    margin-right: 10px;
+  
+  }
+  
+  .trelo4{
+    background-color: #8636ff;
+    border: #111 solid 2px;
+    margin-right: 10px;
+  }
+  
+  .trelo1-grid{
+    height: 100%;
+  }
+  
+  .trelo2-grid{
+    height: 100%;
+  }
+  
+  .trelo3-grid{
+    height: 100%;
+  }
+  
+  .trelo4-grid{
+    height: 100%;
+  }
+  
+  
+  .containerBattle {
+    padding-top: 60px;
+    width: 100%;
+    height: 80%;
+    /*min-height: 100vh;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /*padding-bottom: 45px;*/
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+  }
+
+  /*Warp-login has a background that always covers all wrap-login*/
+
+  .battleField {
+    /*width: 960px;*/
+    /*height: 540px;*/
+    width: 90%;
+    border: #111 solid 5px;
+    height: 80%;
+    background: #f4f0f5;
+    border-radius: 7px;
+    overflow: hidden;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #be0000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    /*padding: 30px 80px 0px 80px;*/
+  }
+  
+  /*Align everything in middle, make images size constant*/
+  .battleFieldPlayer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+  }
+  
+  .statsWindow{
+    overflow: auto;
+  }
+  
+  /*Align div with the bottom of the screen*/
+  .battleFieldPlayerImage {
+    width: 100%;
+    height: 70%;
+    flex-wrap: wrap;
+    display: flex;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .battleFieldPlayerImage img{
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  /*Align everything in middle, make images size constant*/
+  .battleFieldEnemy{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+  }
+  
+  .battleFieldPlayerNameNick{
+
+    color: #5900ffcc;
+    background-color: #ffffff;
+    border: #111 solid 7px;
+    border-radius: 7px ;
+  
+  }
+  
+  
+  /*Align div with the bottom of the screen*/
+  .battleFieldEnemyImageAll{
+    width: 100%;
+    height: 70%;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+  }
+  
+  .battleFieldEnemyImageAll img{
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  
+  /*------------------------------------------------------------------
+  [Personagem ]*/
+  
+  
+  .namePersono{
+    font-family: Poppins-Bold;
+    font-size: 1.2rem;
+    color: #5900ffcc;
+    line-height: 1.2;
+  
+    width: 100%;
+    display: block;
+    /*padding-bottom: 54px;*/
+    padding-left: 15px;
+    padding-top: 5px;
+  
+  }
+  
+  .person{
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    text-align: left;
+    padding-left: 15px;
+  
+  
+  }
+  
+  .lv{
+    display: inline;
+    padding-left: 30px;
+  }
+  
+  .attackDamage{
+    display: inline;
+    padding-left: 30px;
+  }
+  
+  /*------------------------------------------------------------------
+  [ ProgressBar XP]*/
+  
+  .xp{
+    color: #5900ffcc;
+  
+    width: 100%;
+    display: inline;
+    /*padding-bottom: 54px;*/
+  
+  
+  }
+  
+  .containerXp{
+    height: 25px;
+    background-color: #999999;
+    position: relative;
+    border-radius: 7px  ;
+  
+  
+  }
+  
+  .containerXp .progressXp {
+    position:absolute;
+    height: 100%;
+    border-radius: 7px;
+    background-color: #9000ffcc;
+    animation: progress-animation-xp 2s ease-out forwards;
+  
+  }
+  
+  @keyframes progress-animation-xp {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  /*------------------------------------------------------------------
+  [ Vida ]*/
+  
+  
+  .containerHp{
+    height: 25px;
+    background-color: #999999;
+    position: relative;
+    border-radius: 7px  ;
+  
+  
+  }
+  
+  .containerHp .progressHp {
+    position:absolute;
+    height: 100%;
+    border-radius: 7px;
+    background-color: #9000ffcc;
+    animation: progress-animation-hp 2s ease-out forwards;
+  
+  }
+  
+  @keyframes progress-animation-hp {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  
+  /*------------------------------------------------------------------
+  [ Stamina ]*/
+  
+  
+  .containerSt{
+    height: 25px;
+    background-color: #999999;
+    position: relative;
+    border-radius: 7px  ;
+  
+  
+  }
+  
+  .containerSt .progressSt {
+    position:absolute;
+    height: 100%;
+    border-radius: 7px;
+    background-color: #9000ffcc;
+    animation: progress-animation-st 2s ease-out forwards;
+  
+  }
+  
+  @keyframes progress-animation-st {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  
+  /*------------------------------------------------------------------
+  [ ProgressBar XP]*/
+  
+  
+  .containerXpEnemy{
+    height: 25px;
+    background-color: #999999;
+    position: relative;
+    border-radius: 7px  ;
+  
+  
+  }
+  
+  .containerXpEnemy .progressXpEnemy{
+    position:absolute;
+    height: 100%;
+    border-radius: 7px;
+    background-color: #9000ffcc;
+    animation: progress-animation-xp-enemy 2s ease-out forwards;
+  
+  }
+  
+  @keyframes progress-animation-xp-enemy {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 12%;
+    }
+  }
+  
+  /*------------------------------------------------------------------
+  [ Vida ]*/
+  
+  
+  .containerHpEnemy{
+    height: 25px;
+    background-color: #999999;
+    position: relative;
+    border-radius: 7px  ;
+  
+  
+  }
+  
+  .containerHpEnemy .progressHpEnemy {
+    position:absolute;
+    height: 100%;
+    border-radius: 7px;
+    background-color: #9000ffcc;
+    animation: progress-animation-hp-enemy 2s ease-out forwards;
+  
+  }
+  
+  @keyframes progress-animation-hp-enemy {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 90%;
+    }
+  }
+  
+  
+  /*------------------------------------------------------------------
+  [ Stamina ]*/
+  
+  
+  .containerStEnemy{
+    height: 25px;
+    background-color: #999999;
+    position: relative;
+    border-radius: 7px  ;
+  
+  
+  }
+  
+  .containerStEnemy .progressStEnemy {
+    position:absolute;
+    height: 100%;
+    border-radius: 7px;
+    background-color: #9000ffcc;
+    animation: progress-animation-st-enemy 2s ease-out forwards;
+  
+  }
+  
+  @keyframes progress-animation-st-enemy {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 60%;
+    }
+  }
+  
+  
+  
+  @-webkit-keyframes anim-shadow {
+    to {
+      box-shadow: 0px 0px 70px 25px;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes anim-shadow {
+    to {
+      box-shadow: 0px 0px 70px 25px;
+      opacity: 0;
+    }
+  }
+  
+ 
+  
+  
+  /*------------------------------------------------------------------
+  [ Alert validate ]*/
+  
+  .validate-input {
+    position: relative;
+  }
+  
+  .alert-validate::before {
+    content: attr(data-validate);
+    position: absolute;
+    max-width: 70%;
+    background-color: white;
+    border: 1px solid #c80000;
+    border-radius: 13px;
+    padding: 4px 25px 4px 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 8px;
+    pointer-events: none;
+  
+    font-family: Poppins-Medium;
+    color: #c80000;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+  
+    visibility: hidden;
+    opacity: 0;
+  
+    -webkit-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+  }
+  
+  .alert-validate::after {
+    content: "\f06a";
+    font-family: FontAwesome;
+    display: block;
+    position: absolute;
+    color: #c80000;
+    font-size: 15px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 13px;
+  }
+  
+  .alert-validate:hover:before {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  
+  @media (max-width: 992px) {
+    .alert-validate::before {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  
+  /*!* Responsividade *!*/
+  
+  @media (max-width: 920px) {
+    /*.wrap-login {*/
+    /*  padding: 177px 90px 33px 85px;*/
+    /*}*/
+    .containerStats100{
+      height: 70%;
+    }
+    .wrapStats100{
+      width: 100%;
+      height: 100%;
+      flex-wrap: nowrap;
+      align-content: start;
+      overflow-y: auto;
+      flex-direction: column;
+    }
+    
+    .statsMenu{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  
+  
+  @media (max-width: 576px) {
+    /*.wrap-login {*/
+    /*  padding: 100px 15px 33px 15px;*/
+    /*}*/
+  }
