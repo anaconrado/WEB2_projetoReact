@@ -1,0 +1,5 @@
+1 - Escudo ( Roupa )
+2 - Armadura ( Pele )
+3 - Espada ( Olhos )
+4 - Bota ( Cabelo )
+5 - Fundo
