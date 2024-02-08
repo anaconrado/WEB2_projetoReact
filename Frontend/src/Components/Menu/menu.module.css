@@ -39,14 +39,33 @@
     margin: 0 10px;
 }
 
-ul {
-    margin: 0
-}
-
 a {
+	font-family: Poppins-Regular;
     text-decoration: none;
     font-size: 14px;
-    line-height: 1.7;
-    color: #666666;
-    margin: 0;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+    transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+
 }
+
+ul{
+	margin: 0px;
+	list-style-type: none;
+    
+}
+
+  
+  a:focus {
+	outline: none !important;
+}
+
+.Colorir:hover {
+    text-decoration: none;
+    font-size: 1.1em;
+    color: rgb(124, 40, 202)
+  }
