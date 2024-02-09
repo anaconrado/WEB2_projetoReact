@@ -53,12 +53,12 @@ export default function Login() {
                     <div className={styles.formContainer}>
                         <div className={styles.inputContainer}>
                             <h3 className={styles.inputTitle}> Email </h3>
-                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input className={styles.inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className={styles.inputContainer}>
                             <h3 className={styles.inputTitle}> Senha </h3>
                             <div className={styles.passwordContainer}>
-                            <input type={passwordShown ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input className={styles.inputStyle} type={passwordShown ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} />
                                 <i className={styles.eyeIcon} onClick={PasswordVisibility}>
                                 {passwordShown ? <FaRegEyeSlash /> : <FaRegEye />}
                                 </i>

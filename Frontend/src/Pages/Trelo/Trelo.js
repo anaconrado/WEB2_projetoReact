@@ -232,17 +232,17 @@ export default function Trelo() {
 		
 		function LevelUp()
 		{
-			const newStats = {
-				attackDamage: characterData.characterStats.attackDamage + 2,
-				xp: characterData.characterStats.xp - characterData.characterStats.xpAmountToLevelUp,
-				xpAmountToLevelUp: characterData.characterStats.xpAmountToLevelUp + 30,
-				hp: baseHp + 10,
-				stamina: baseStamina, 
-				level: characterData.characterStats.level + 1,
-			};
+			// const newStats = {
+			// 	attackDamage: characterData.characterStats.attackDamage + 2,
+			// 	xp: characterData.characterStats.xp - characterData.characterStats.xpAmountToLevelUp,
+			// 	xpAmountToLevelUp: characterData.characterStats.xpAmountToLevelUp + 30,
+			// 	hp: baseHp + 10,
+			// 	stamina: baseStamina, 
+			// 	level: characterData.characterStats.level + 1,
+			// };
 
 			baseHp += 10;
-			attackDamage += 2;
+			attackDamage += 8;
 			xp -= xpAmountToLevelUp;
 			xpAmountToLevelUp += 30;
 			hp = baseHp;
@@ -252,7 +252,7 @@ export default function Trelo() {
 			level++;
 			UpdateStats();
 
-			updateCharacterPart('characterStats', newStats);
+			// updateCharacterPart('characterStats', newStats);
 			if(!(level % 2))
 				baseStamina++; 
 
@@ -261,17 +261,17 @@ export default function Trelo() {
 		
 		function LevelDown()
 		{
-			const newStats = {
-				attackDamage: characterData.characterStats.attackDamage - 2,
-				xp: characterData.characterStats.xp + characterData.characterStats.xpAmountToLevelUp,
-				xpAmountToLevelUp: characterData.characterStats.xpAmountToLevelUp - 30,
-				hp: baseHp, 
-				stamina: baseStamina,
-				level: characterData.characterStats.level - 1,
-			};
+			// const newStats = {
+			// 	attackDamage: characterData.characterStats.attackDamage - 2,
+			// 	xp: characterData.characterStats.xp + characterData.characterStats.xpAmountToLevelUp,
+			// 	xpAmountToLevelUp: characterData.characterStats.xpAmountToLevelUp - 30,
+			// 	hp: baseHp, 
+			// 	stamina: baseStamina,
+			// 	level: characterData.characterStats.level - 1,
+			// };
 
 			baseHp -= 10;
-			attackDamage -= 2;
+			attackDamage -= 8;
 			xpAmountToLevelUp -= 30;
 			xp = xpAmountToLevelUp + xp;
 			hp = baseHp;
@@ -281,7 +281,7 @@ export default function Trelo() {
 			level--;
 			UpdateStats();
 	
-			updateCharacterPart('characterStats', newStats);
+			// updateCharacterPart('characterStats', newStats);
 			if((level % 2))
 				baseStamina--; 
 		}

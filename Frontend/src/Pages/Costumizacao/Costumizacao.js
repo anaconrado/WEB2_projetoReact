@@ -101,6 +101,11 @@ export default function Costumizacao() {
         updateCharacterPart('characterConfig', currentOptions);
     };
 
+    // const saveCharacterConfig = () => {
+    //     const configToSave = JSON.stringify(currentOptions);
+    //     localStorage.setItem('characterConfig', configToSave);
+    //   };
+
     const renderCustomizationCategory = (parte, categoria) => (
         <div className={styles.categoria}>
             <FaCaretLeft className={styles.iconeSeta} onClick={() => changeCharacter(parte, 'prev')}/>

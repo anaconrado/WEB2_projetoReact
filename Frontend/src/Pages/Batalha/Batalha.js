@@ -78,7 +78,7 @@ export default function Batalhar() {
     var [STAMINA, setSTAMINA] = useState(10); // Estado para controlar a Stamina
     var [STAMINA_MAX, setSTAMINA_Max] = useState(11); // Estado para controlar a Stamina máxima
     var [Level, setLevel] = useState(2); // Estado para controlar o Level
-    var [ATTACK_DAMAGE, setATTACK_DAMAGE] = useState(12); // Estado para controlar o dano do ataque
+    var [ATTACK_DAMAGE, setATTACK_DAMAGE] = useState(18); // Estado para controlar o dano do ataque
     
 
     // Controle Turno
@@ -186,7 +186,7 @@ export default function Batalhar() {
           }, 3000); // Tempo em milissegundos
           }else{
             setTexto("O INIMIGO NÃO TEM STAMINA SUFICIENTE PARA ATACAR!");
-            setSTAMINA_E(STAMINA_E + 1);
+            setSTAMINA_E(STAMINA_E + 2);
           }
           if((HP - ATTACK_DAMAGE_E) > 0){
             setTimeout(() => {
@@ -234,7 +234,7 @@ export default function Batalhar() {
         }, 3000); // Tempo em milissegundos
       }else{
         setTexto("VOCÊ NÃO TEM STAMINA SUFICIENTE PARA ATACAR!");
-        setSTAMINA(STAMINA + 1);
+        setSTAMINA(STAMINA + 2);
       }
         if((HP_E - ATTACK_DAMAGE) > 0){
           setTimeout(() => {
@@ -381,11 +381,11 @@ export default function Batalhar() {
                 </div>
                 <div className={styles.battleFieldEnemyImageAll}>
                     <div className={styles.characterDisplay}>
-                        <img className={styles.planoDeFundo} src={opcoes.planoDeFundo[characterConfig.planoDeFundo]} alt="Background"/>
+                        <img className={styles.planoDeFundo} src={opcoes.planoDeFundo[1]} alt="Background"/>
                         <img className={styles.cabelo} src={opcoes.Cavalheiro.cabelo[characterConfig.cabelo]} alt="Hair"/>
                         <img className={styles.pele} src={opcoes.Cavalheiro.pele[characterConfig.pele]} alt="Skin"/>
                         <img className={styles.olho} src={opcoes.Cavalheiro.olho[characterConfig.olho]} alt="Eyes"/>
-                        <img className={styles.roupa} src={opcoes.Cavalheiro.roupa[characterConfig.roupa]} alt="Outfit"/>
+                        <img className={styles.roupa} src={opcoes.Cavalheiro.roupa[1]} alt="Outfit"/>
                     </div>
                 </div>
               </div>

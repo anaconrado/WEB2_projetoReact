@@ -54,6 +54,7 @@ export default function Cadatro() {
                     senha: "",
                     confirmSenha: ""
                 });
+                window.location.href = '/';
             } else {
                 setError("Erro ao cadastrar usuário");
             }
@@ -76,16 +77,16 @@ export default function Cadatro() {
                     <div className={styles.formContainer}>
                         <div className={styles.inputContainer}>
                             <h3 className={styles.inputTitle}> Username </h3>
-                            <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
+                            <input className={styles.inputStyle} type="text" name="username" value={formData.username} onChange={handleInputChange} />
                         </div>
                         <div className={styles.inputContainer}>
                             <h3 className={styles.inputTitle}> Email </h3>
-                            <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
+                            <input className={styles.inputStyle} type="email" name="email" value={formData.email} onChange={handleInputChange} />
                         </div>
                         <div className={styles.inputContainer}>
                             <h3 className={styles.inputTitle}> Senha </h3>
                             <div className={styles.passwordContainer}>
-                            <input type={passwordShown ? "text" : "password"} name="senha" value={formData.senha} onChange={handleInputChange} />
+                            <input className={styles.inputStyle} type={passwordShown ? "text" : "password"} name="senha" value={formData.senha} onChange={handleInputChange} />
                                 <i className={styles.eyeIcon} onClick={PasswordVisibility}>
                                 {passwordShown ? <FaRegEyeSlash /> : <FaRegEye />}
                                 </i>
@@ -94,7 +95,7 @@ export default function Cadatro() {
                         <div className={styles.inputContainer}>
                             <h3 className={styles.inputTitle}> Confirmar senha </h3>
                             <div className={styles.passwordContainer}>
-                            <input type={passwordShown ? "text" : "password"} name="confirmSenha" value={formData.confirmSenha} onChange={handleInputChange} />
+                            <input className={styles.inputStyle} type={passwordShown ? "text" : "password"} name="confirmSenha" value={formData.confirmSenha} onChange={handleInputChange} />
                                 <i className={styles.eyeIcon} onClick={PasswordVisibility}>
                                 {passwordShown ? <FaRegEyeSlash /> : <FaRegEye />}
                                 </i>
