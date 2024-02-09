@@ -74,7 +74,7 @@ export default function Trelo() {
 			var card = document.createElement("li");
 			card.draggable = true;
 			card.ondragstart = function(e) {drag(e)};
-			card.id = "drag" + (document.getElementById(nomeLista).childElementCount + 1);
+			card.id = "drag" + (document.getElementById(nomeLista).childElementCount + 1) + nome.target.value;
 			// card.innerHTML = nome.target.value;
 			card.appendChild(document.createTextNode(nome.target.value));
 			nome.target.value = "";
@@ -223,8 +223,7 @@ export default function Trelo() {
 			xp += 20;
 			document.getElementById("xp").innerHTML = "Experiência: " + xp;
 			document.getElementById("xpAmountToLevelUp").innerHTML = xpAmountToLevelUp;
-			e.target.parentElement.innerHTML = "Mission Completed";
-			console.log("FinishMission");
+			e.target.parentElement.innerHTML = "Missão Completa";
 		}
 
 		function FailMission(e)
@@ -232,8 +231,7 @@ export default function Trelo() {
 			xp -= 20;
 			document.getElementById("xp").innerHTML = "Experiência: " + xp;
 			document.getElementById("xpAmountToLevelUp").innerHTML = xpAmountToLevelUp;
-			e.target.parentElement.innerHTML = "Mission Failed";
-			console.log("FinishMission");
+			e.target.parentElement.innerHTML = "Missão Fracassada";
 		}
 
 
