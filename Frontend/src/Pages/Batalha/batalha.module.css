@@ -565,9 +565,7 @@
   }
   
   @keyframes progress-animation-xp {
-    0% {
-      width: 0%;
-    }
+
     100% {
       width: 100%;
     }
@@ -596,9 +594,7 @@
   }
   
   @keyframes progress-animation-hp {
-    0% {
-      width: 0%;
-    }
+
     100% {
       width: 100%;
     }
@@ -628,9 +624,7 @@
   }
   
   @keyframes progress-animation-st {
-    0% {
-      width: 0%;
-    }
+
     100% {
       width: 100%;
     }
@@ -660,9 +654,7 @@
   }
   
   @keyframes progress-animation-xp-enemy {
-    0% {
-      width: 0%;
-    }
+
     100% {
       width: 100%;
     }
@@ -691,9 +683,7 @@
   }
   
   @keyframes progress-animation-hp-enemy {
-    0% {
-      width: 0%;
-    }
+
     100% {
       width: 100%;
     }
@@ -723,9 +713,7 @@
   }
   
   @keyframes progress-animation-st-enemy {
-    0% {
-      width: 0%;
-    }
+
     100% {
       width: 100%;
     }
