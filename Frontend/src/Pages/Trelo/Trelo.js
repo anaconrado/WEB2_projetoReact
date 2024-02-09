@@ -47,6 +47,8 @@ import Roupa6 from "../../Imagens/Mago/Roupas/RoupaVermelha.png"
 
 import Menu from "../../Components/Menu/Menu.js"
 import Card from "./TreloCard.js"
+import { useCharacter } from '../../context/CharacterContext.js';
+
 
 
 
@@ -64,8 +66,54 @@ export default function Trelo() {
 		var teste = "teste";
 		var cardList = [];
 
+	const { characterData, updateCharacterPart } = useCharacter();
+	const { characterConfig, characterStats } = characterData;
 
-		function createCard(nome, nomeLista)
+	const planoDeFundoMap = {
+		0: planoDeFundo1,
+		1: planoDeFundo2,
+		2: planoDeFundo3,
+	  };
+	  
+	  const cabeloMap = {
+		0: Cabelo1,
+		1: Cabelo2,
+		2: Cabelo3,
+		3: Cabelo4,
+	  };
+	  
+	  const olhoMap = {
+		0: Olhos1,
+		1: Olhos2,
+		2: Olhos3,
+		3: Olhos4,
+		4: Olhos5,
+		5: Olhos6,
+	  };
+	  
+	  const peleMap = {
+		0: Pele1,
+		1: Pele2,
+		2: Pele3,
+		3: Pele4,
+	  };
+	  
+	  const roupaMap = {
+		0: Roupa1,
+		1: Roupa2,
+		2: Roupa3,
+		3: Roupa4,
+		4: Roupa5,
+		5: Roupa6,
+	  };
+
+	  const planoDeFundoImg = planoDeFundoMap[characterConfig.planoDeFundo];
+	  const cabeloImg = cabeloMap[characterConfig.cabelo];
+	  const peleImg = peleMap[characterConfig.pele];
+	  const olhoImg = olhoMap[characterConfig.olho];
+	  const roupaImg = roupaMap[characterConfig.roupa];
+		
+	function createCard(nome, nomeLista)
 		{
 			// Create card and appends to lista1
 			console.log(nome.target.parentElement.parentElement.className);
@@ -172,30 +220,36 @@ export default function Trelo() {
 		
 		function LevelUp()
 		{
-			baseHp += 10;
-			attackDamage += 2;
-			xp -= xpAmountToLevelUp;
-			xpAmountToLevelUp += 30;
-			hp = baseHp;
+			const newStats = {
+				attackDamage: characterData.characterStats.attackDamage + 2,
+				xp: characterData.characterStats.xp - characterData.characterStats.xpAmountToLevelUp,
+				xpAmountToLevelUp: characterData.characterStats.xpAmountToLevelUp + 30,
+				hp: baseHp + 10,
+				stamina: baseStamina, 
+				level: characterData.characterStats.level + 1,
+			};
+	
+			updateCharacterPart('characterStats', newStats);
 			if(!(level % 2))
 				baseStamina++; 
-			stamina = baseStamina;
-			level++;
+
 			UpdateStats();
 		}
 		
 		function LevelDown()
 		{
-			baseHp -= 10;
-			attackDamage -= 2;
-			xpAmountToLevelUp -= 30;
-			xp = xpAmountToLevelUp + xp;
-			hp = baseHp;
+			const newStats = {
+				attackDamage: characterData.characterStats.attackDamage - 2,
+				xp: characterData.characterStats.xp + characterData.characterStats.xpAmountToLevelUp,
+				xpAmountToLevelUp: characterData.characterStats.xpAmountToLevelUp - 30,
+				hp: baseHp, 
+				stamina: baseStamina,
+				level: characterData.characterStats.level - 1,
+			};
+	
+			updateCharacterPart('characterStats', newStats);
 			if((level % 2))
 				baseStamina--; 
-			stamina = baseStamina;
-			level--;
-			UpdateStats();
 		}
 		
 		function UpdateXP()
@@ -255,25 +309,16 @@ const opcoes = {
     planoDeFundo: [planoDeFundo1, planoDeFundo2, planoDeFundo3]
 };
 
-const [characterConfig, setCharacterConfig] = useState({
-    cabelo: 0,
-    pele: 0,
-    olho: 0,
-    roupa: 0,
-    planoDeFundo: 0
-});
-
-//Função de load
-
+/*
 useEffect(() => {
     const savedConfig = localStorage.getItem('characterConfig');
     if (savedConfig) {
-        setCharacterConfig(JSON.parse(savedConfig));
+		updateCharacterPart('characterConfig', newConfig);
     }
 }, []);
 
 
-
+*/
    
     
     return(
@@ -286,11 +331,11 @@ useEffect(() => {
 			<div class={styles.wrapStats100}>
 				<div class={styles.statsMenu} data-tilt>
                     <div className={styles.characterDisplay}>
-                        <img className={styles.planoDeFundo} src={opcoes.planoDeFundo[characterConfig.planoDeFundo]} alt="Background"/>
-                        <img className={styles.cabelo} src={opcoes.Cavalheiro.cabelo[characterConfig.cabelo]} alt="Hair"/>
-                        <img className={styles.pele} src={opcoes.Cavalheiro.pele[characterConfig.pele]} alt="Skin"/>
-                        <img className={styles.olho} src={opcoes.Cavalheiro.olho[characterConfig.olho]} alt="Eyes"/>
-                        <img className={styles.roupa} src={opcoes.Cavalheiro.roupa[characterConfig.roupa]} alt="Outfit"/>
+						<img className={styles.planoDeFundo} src={planoDeFundoImg} alt="Background" />
+						<img className={styles.cabelo} src={cabeloImg} alt="Cabelo" />
+						<img className={styles.pele} src={peleImg} alt="Pele" />
+						<img className={styles.olho} src={olhoImg} alt="Olhos" />
+						<img className={styles.roupa} src={roupaImg} alt="Roupa" />
                     </div>
 					<ul class={styles.statsWindow}>
 						<div>

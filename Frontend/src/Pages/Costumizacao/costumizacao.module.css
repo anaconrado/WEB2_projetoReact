@@ -106,6 +106,13 @@
 }
 
 .botaoType {
+    background-color: #7A6C9D;
+    color: white;
+    height: 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1rem;
     width: 45%;
 }
 
@@ -114,7 +121,9 @@
     border: 2px solid #7A6C9D;
     width: 50%;
     color: #7A6C9D;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 1rem 0;
     height: 3rem;
     border-radius: 15px;
 }
@@ -164,7 +173,7 @@
         width: 80%;
         flex-direction: column;
         padding: 1rem;
-        height: 75%;
+        height: 80%;
     }
 
     .rightContainer {
@@ -205,7 +214,7 @@
     .botaoType {
         width: 30%;
         height: 2rem;
-        margin-top: 0rem
+
     }
 
     

@@ -101,7 +101,7 @@ export default function Cadatro() {
                             </div>
                         </div>
                         <div className={styles.buttonContainer}>
-                            <button className={styles.cadastroButton}onClick={handleFormSubmit}> CADASTRAR </button>
+                            <button className={styles.cadastroButton} onClick={handleFormSubmit}> CADASTRAR </button>
                         </div>
                         <ErrorMessage message={error} />
                     </div>

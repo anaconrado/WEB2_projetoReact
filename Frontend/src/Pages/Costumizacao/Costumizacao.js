@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import styles from "./costumizacao.module.css"
+import { useCharacter } from '../../context/CharacterContext.js';
 
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa6";
 
@@ -40,6 +41,7 @@ import Menu from "../../Components/Menu/Menu.js"
 export default function Costumizacao() {
 
     const [characterType, setCharacterType] = useState('Cavalheiro');
+    const { characterData, updateCharacterPart } = useCharacter();
 
     
     const opcoes = {
@@ -95,6 +97,10 @@ export default function Costumizacao() {
         }
     };
 
+    const saveCharacterConfig = () => {
+        updateCharacterPart('characterConfig', currentOptions);
+    };
+
     const renderCustomizationCategory = (parte, categoria) => (
         <div className={styles.categoria}>
             <FaCaretLeft className={styles.iconeSeta} onClick={() => changeCharacter(parte, 'prev')}/>
@@ -102,11 +108,6 @@ export default function Costumizacao() {
             <FaCaretRight className={styles.iconeSeta} onClick={() => changeCharacter(parte, 'next')}/>
         </div>
     );
-
-    const saveCharacterConfig = () => {
-        const configToSave = JSON.stringify(currentOptions);
-        localStorage.setItem('characterConfig', configToSave);
-      };
     
     return(
         <div className={styles.costumizacaoContainer}>
