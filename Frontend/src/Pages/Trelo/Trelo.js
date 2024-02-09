@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDrag } from 'react-dnd'
+import * as ReactDOM from 'react-dom';
 
 
 
@@ -45,11 +46,196 @@ import Roupa6 from "../../Imagens/Mago/Roupas/RoupaVermelha.png"
 
 
 import Menu from "../../Components/Menu/Menu.js"
+import Card from "./TreloCard.js"
 
 
 
 
 export default function Trelo() {
+	//Drag and Drop
+	var baseHp = 100;
+		var attackDamage = 10;
+		var baseStamina = 10;
+		var xpAmountToLevelUp = 100;
+		var level = 1;
+		var xp = 0;
+		var stamina = 10;
+		var hp = 100;
+		var teste = "teste";
+		var cardList = [];
+
+
+		function createCard(nome, nomeLista)
+		{
+			// Create card and appends to lista1
+			console.log(nome.target.parentElement.parentElement.className);
+			// cardList.push(<Card string={nome.target.value}/>)
+			// console.log(cardList)
+			var card = document.createElement("li");
+			card.draggable = true;
+			card.ondragstart = function(e) {drag(e)};
+			card.id = "drag" + (document.getElementById(nomeLista).childElementCount + 1);
+			// card.innerHTML = nome.target.value;
+			card.appendChild(document.createTextNode(nome.target.value));
+			nome.target.value = "";
+			document.getElementById(nomeLista).appendChild(card);
+
+			if(nomeLista === "lista1")
+			{
+				// if(level > 1 || xp > 4)
+					xp -= 5;
+			}
+			else if(nomeLista === "lista4")
+			{
+				xp += 20;
+			}
+
+			
+			if(xp < 0 && level > 1)
+			{
+				LevelDown();
+				return;
+			}
+				
+			
+			if(xp >= xpAmountToLevelUp)
+			{
+				LevelUp();
+			}
+			else
+				UpdateXP();
+		}
+
+		function _handleKeyDown(e, nomeLista){
+			if (e.key === 'Enter') {	
+			  return createCard(e, nomeLista);
+			}
+		  }
+		
+
+		function allowDrop(ev) {
+			ev.preventDefault();
+		}
+
+		function drag(ev) {
+			ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			var element = document.getElementById(data);
+			var parent = element.parentElement.id;
+			console.log(parent + " " + ev.target.id);
+			var target = ev.target;
+			if(target.id.includes("drag"))
+				target = target.parentElement;
+			if(target.id === parent || target.id === element.id)
+				return;
+
+			target.appendChild(element);
+			
+			if(parent === "lista1")
+			{
+				xp += 5;
+			}
+			else if(parent === "lista4")
+			{
+				xp -= 20;
+			}
+			
+			if(target.id === "lista1")
+			{
+				// if(level > 1 || xp > 4)
+					xp -= 5;
+			}
+			else if(target.id === "lista4")
+			{
+				xp += 20;
+			}
+			
+			if(xp < 0 && level > 1)
+			{
+				LevelDown();
+				return;
+			}
+				
+			
+			if(xp >= xpAmountToLevelUp)
+			{
+				LevelUp();
+			}
+			else
+				UpdateXP();
+			
+		}
+		
+		function LevelUp()
+		{
+			baseHp += 10;
+			attackDamage += 2;
+			xp -= xpAmountToLevelUp;
+			xpAmountToLevelUp += 30;
+			hp = baseHp;
+			if(!(level % 2))
+				baseStamina++; 
+			stamina = baseStamina;
+			level++;
+			UpdateStats();
+		}
+		
+		function LevelDown()
+		{
+			baseHp -= 10;
+			attackDamage -= 2;
+			xpAmountToLevelUp -= 30;
+			xp = xpAmountToLevelUp + xp;
+			hp = baseHp;
+			if((level % 2))
+				baseStamina--; 
+			stamina = baseStamina;
+			level--;
+			UpdateStats();
+		}
+		
+		function UpdateXP()
+		{
+			if(xp < 0) return;
+			document.getElementById("xp").innerHTML = "Experiência: " + xp;
+			document.getElementById("xpAmountToLevelUp").innerHTML = xpAmountToLevelUp;
+		}
+		function UpdateStats()
+		{
+			// Update Level, Hp, Stamina and Dano text
+			document.getElementById("xp").innerHTML = "Experiência: " + xp;
+			document.getElementById("xpAmountToLevelUp").innerHTML = xpAmountToLevelUp;
+			document.getElementById("level").innerHTML = "Level: " + level;
+			document.getElementById("hp").innerHTML = "HP: " + hp;
+			document.getElementById("baseHp").innerHTML = baseHp;
+			document.getElementById("stamina").innerHTML = "Stamina: " + stamina;
+			document.getElementById("baseStamina").innerHTML = baseStamina;
+			document.getElementById("attackDamage").innerHTML = "Dano: " + attackDamage;
+		}
+
+		function FinishMission(e)
+		{
+			// gain xp and disable button
+			xp += 20;
+			document.getElementById("xp").innerHTML = "Experiência: " + xp;
+			document.getElementById("xpAmountToLevelUp").innerHTML = xpAmountToLevelUp;
+			e.target.parentElement.innerHTML = "Mission Completed";
+			console.log("FinishMission");
+		}
+
+		function FailMission(e)
+		{
+			xp -= 20;
+			document.getElementById("xp").innerHTML = "Experiência: " + xp;
+			document.getElementById("xpAmountToLevelUp").innerHTML = xpAmountToLevelUp;
+			e.target.parentElement.innerHTML = "Mission Failed";
+			console.log("FinishMission");
+		}
+
 
     //Estruturas de dados
 
@@ -86,7 +272,8 @@ useEffect(() => {
     }
 }, []);
 
-    
+
+
    
     
     return(
@@ -110,45 +297,45 @@ useEffect(() => {
 							<a class={styles.namePersono}>Janela de Atributos: </a>
 							<a id="name" class={styles.person}>Nome: Notarg</a>
 							<a id="level" class={styles.lv}>Level: 1</a>
-							<a id="attackDamage" class={styles.attackDamage}>Attack Damage: 10</a>
+							<a id="attackDamage" class={styles.attackDamage}>Dano: 10</a>
 						</div>
 					
 						<li>
-							<a id="xp" class={styles.xp}>Experience: 0</a>
+							<a id="xp" class={styles.xp}>Experiência: 0</a>
 							<a class={styles.xp}>/</a>
 							<a id="xpAmountToLevelUp" class={styles.xp}>100</a>
-							<div class={styles.containerXp}>
+							{/* <div class={styles.containerXp}>
 								<div class={styles.progressXp} ></div>
-							</div>
+							</div> */}
 						</li>
 						<li >
 							<a id="hp">Hp: 100</a>
 							<a>/</a>
 							<a id="baseHp">100</a>
-							<div class={styles.containerHp}>
+							{/* <div class={styles.containerHp}>
 								<div class={styles.progressHp} ></div>
-							</div>
+							</div> */}
 						</li>
 				
 						<li>
 							<a id="stamina">Stamina: 10</a>
 							<a>/</a>
 							<a id="baseStamina">10</a>
-							<div class={styles.containerSt}>
+							{/* <div class={styles.containerSt}>
 								<div class={styles.progressSt} ></div>
-							</div>
+							</div> */}
 						</li>
 					</ul>
 					
 				</div>
 				<div class={styles.login100Form}>
 					<span class={styles.login100FormTitle}>
-						Missions
+						Missões
 					</span>
 					<ul class={styles.listItems}>
-						<li> Missão 1</li>
-						<li> Missão 2</li>
-						<li> Missão 3</li>
+						<li> Lavar Banheiro <button className={styles.treloButton} onClick={(e) => FinishMission(e)}>V</button><button className={styles.treloButton2} onClick={(e) => FailMission(e)}>X</button></li>
+						<li> Tomar Banho <button className={styles.treloButton} onClick={(e) => FinishMission(e)}>V</button><button className={styles.treloButton2} onClick={(e) => FailMission(e)}>X</button></li>
+						<li> Entregar Trabalho <button className={styles.treloButton} onClick={(e) => FinishMission(e)}>V</button><button className={styles.treloButton2} onClick={(e) => FailMission(e)}>X</button></li>
 					</ul>
 				</div>
 					
@@ -164,57 +351,59 @@ useEffect(() => {
 					<div class={styles.wrapInput100}> {/* sera? */}
                         {/* <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} /> */}
 
-							<input class={styles.input100} type="text" name="pass" placeholder="Nova Tarefa" />
+							<input class={styles.input100} type="text" name="pass" placeholder="Nova Tarefa" onKeyDown={(e) => _handleKeyDown(e, "lista1")}/>
 							<span class={styles.focusInput100}></span>
 
 					</div>
 					<div class={styles.trelo1Grid} >
-						<ul class={styles.listItems} ondrop="drop(event)" ondragover="allowDrop(event)" id="lista1">
-							<li draggable="true" ondragstart="drag(event)" id="drag10">Estudar AM</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag2">Jogar LoL</li>
+						<ul class={styles.listItems} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)} id="lista1">
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag10">Estudar AM</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag2">Jogar LoL</li>
 						</ul>
 					</div>
 				</div>
 				<div class={styles.trelo2}>
 					<h2 class={styles.titleTrelo}>Para fazer</h2>
 					<div class={styles.wrapInput100}>
-						<input class={styles.input100r} type="text" name="pass" placeholder="Nova Tarefa" />
+						<input class={styles.input100r} type="text" name="pass" placeholder="Nova Tarefa" onKeyDown={(e) => _handleKeyDown(e, "lista2")}/>
 						<span class={styles.focusInput100r}></span>
 					</div>
 					<div class={styles.trelo1Grid}>
-						<ul class={styles.listItems} ondrop="drop(event)" ondragover="allowDrop(event)" id="lista2">
-							<li draggable="true" ondragstart="drag(event)" id="drag1">Fazer almoço</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag5">Tomar banho</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag6">Lavar louça</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag7">Ir à academia</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag8">Fazer trabalho de Web2</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag4">Toma água</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag9">Assitir aula de PPD</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag11">Assitir aula de TC</li>
-							<li draggable="true" ondragstart="drag(event)" id="drag12">Assitir aula gravada</li>
+						<ul class={styles.listItems} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}  id="lista2">
+							{/* <Card string={teste}/> */}
+							{cardList}
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag1">Fazer almoço</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag5">Tomar banho</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag6">Lavar louça</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag7">Ir à academia</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag8">Fazer trabalho de Web2</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag4">Toma água</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag9">Assitir aula de PPD</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag11">Assitir aula de TC</li>
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag12">Assitir aula gravada</li>
 						</ul>
 					</div>
 				</div>
 				<div class={styles.trelo3}>
 					<h2 class={styles.titleTrelo}>Fazendo</h2>
 					<div class={styles.wrapInput100}>
-                    <input class={styles.input100r} type="text" name="pass" placeholder="Nova Tarefa" />
+                    <input class={styles.input100r} type="text" name="pass" placeholder="Nova Tarefa" onKeyDown={(e) => _handleKeyDown(e, "lista3")}/>
 						<span class={styles.focusInput100r}></span>
 					</div>
 					<div class={styles.trelo1Grid} >
-						<ul class={styles.listItems} ondrop="drop(event)" ondragover="allowDrop(event)" id="lista3">
-							<li draggable="true" ondragstart="drag(event)" id="drag3">Apresentar trabalho</li>
+						<ul class={styles.listItems} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)} id="lista3">
+							<li draggable="true" onDragStart={(e) => drag(e)} id="drag3">Apresentar trabalho</li>
 						</ul>
 					</div>
 				</div>
 				<div class={styles.trelo4}>
 					<h2 class={styles.titleTrelo}>Concluídas</h2>
 					<div class={styles.wrapInput100}>
-                    <input class={styles.input100r} type="text" name="pass" placeholder="Nova Tarefa" />
+                    <input class={styles.input100r} type="text" name="pass" placeholder="Nova Tarefa" onKeyDown={(e) => _handleKeyDown(e, "lista4")}/>
 						<span class={styles.focusInput100r}></span>
 					</div>
 					<div class={styles.trelo1Grid} >
-						<ul class={styles.listItems}  ondrop="drop(event)" ondragover="allowDrop(event)" id="lista4">
+						<ul class={styles.listItems}  onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}id="lista4">
 						</ul>
 					</div>
 				</div>
