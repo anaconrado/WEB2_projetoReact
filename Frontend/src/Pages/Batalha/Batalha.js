@@ -40,9 +40,18 @@ import Roupa5 from "../../Imagens/Mago/Roupas/RoupaVerde.png"
 import Roupa6 from "../../Imagens/Mago/Roupas/RoupaVermelha.png"
 
 
+
+
 import Menu from "../../Components/Menu/Menu.js"
 
 const API_KEY = "493ede756023e48f8ca7833fc3cc9321" // API key for OpenWeatherMap
+
+
+
+
+
+
+
 
 
 export default function Batalhar() {
@@ -62,14 +71,14 @@ export default function Batalhar() {
 
     // Controle do Player
 
-    var [XP, setXP] = useState(50); // Estado para controlar a experiência
-    var [XP_AMOUNT_TO_LEVEL_UP, setXP_AMOUNT_TO_LEVEL_UP] = useState(100); // Estado para controlar a quantidade de experiência necessária para subir de nível
+    var [XP, setXP] = useState(0); // Estado para controlar a experiência
+    var [XP_AMOUNT_TO_LEVEL_UP, setXP_AMOUNT_TO_LEVEL_UP] = useState(130); // Estado para controlar a quantidade de experiência necessária para subir de nível
     var [HP, setHP] = useState(100); // Estado para controlar o HP
-    var [ HP_Max, setHP_Max] = useState(100); // Estado para controlar o HP máximo
+    var [ HP_Max, setHP_Max] = useState(110); // Estado para controlar o HP máximo
     var [STAMINA, setSTAMINA] = useState(10); // Estado para controlar a Stamina
-    var [STAMINA_MAX, setSTAMINA_Max] = useState(10); // Estado para controlar a Stamina máxima
-    var [Level, setLevel] = useState(1); // Estado para controlar o Level
-    var [ATTACK_DAMAGE, setATTACK_DAMAGE] = useState(19); // Estado para controlar o dano do ataque
+    var [STAMINA_MAX, setSTAMINA_Max] = useState(11); // Estado para controlar a Stamina máxima
+    var [Level, setLevel] = useState(2); // Estado para controlar o Level
+    var [ATTACK_DAMAGE, setATTACK_DAMAGE] = useState(12); // Estado para controlar o dano do ataque
     
 
     // Controle Turno

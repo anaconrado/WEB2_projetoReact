@@ -49,11 +49,23 @@ import Menu from "../../Components/Menu/Menu.js"
 import Card from "./TreloCard.js"
 import { useCharacter } from '../../context/CharacterContext.js';
 
+export var xp = xp;
+export var xpAmountToLevelUp = xpAmountToLevelUp;
+export var level = level;
+export var hp = hp;
+export var baseHp = baseHp;
+export var stamina = stamina;
+export var baseStamina = baseStamina;
+export var attackDamage = attackDamage;
+
 
 
 
 
 export default function Trelo() {
+
+	
+
 	//Drag and Drop
 	var baseHp = 100;
 		var attackDamage = 10;
@@ -228,7 +240,18 @@ export default function Trelo() {
 				stamina: baseStamina, 
 				level: characterData.characterStats.level + 1,
 			};
-	
+
+			baseHp += 10;
+			attackDamage += 2;
+			xp -= xpAmountToLevelUp;
+			xpAmountToLevelUp += 30;
+			hp = baseHp;
+			if(!(level % 2))
+				baseStamina++; 
+			stamina = baseStamina;
+			level++;
+			UpdateStats();
+
 			updateCharacterPart('characterStats', newStats);
 			if(!(level % 2))
 				baseStamina++; 
@@ -246,6 +269,17 @@ export default function Trelo() {
 				stamina: baseStamina,
 				level: characterData.characterStats.level - 1,
 			};
+
+			baseHp -= 10;
+			attackDamage -= 2;
+			xpAmountToLevelUp -= 30;
+			xp = xpAmountToLevelUp + xp;
+			hp = baseHp;
+			if((level % 2))
+				baseStamina--; 
+			stamina = baseStamina;
+			level--;
+			UpdateStats();
 	
 			updateCharacterPart('characterStats', newStats);
 			if((level % 2))
@@ -269,6 +303,10 @@ export default function Trelo() {
 			document.getElementById("stamina").innerHTML = "Stamina: " + stamina;
 			document.getElementById("baseStamina").innerHTML = baseStamina;
 			document.getElementById("attackDamage").innerHTML = "Dano: " + attackDamage;
+
+			
+
+
 		}
 
 		function FinishMission(e)
