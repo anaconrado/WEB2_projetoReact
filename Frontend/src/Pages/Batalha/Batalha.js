@@ -80,7 +80,9 @@ export default function Batalhar() {
 
       //Função para Subir de Nível - Player
       const subirDeNivel_P = () => {
-        if(XP >= XP_AMOUNT_TO_LEVEL_UP){
+
+        setXP(XP + 100);
+        if(XP + 100 >= XP_AMOUNT_TO_LEVEL_UP){
           console.log("Subiu de Nível!");
           setLevel(Level + 1);
           setXP(0);
@@ -95,7 +97,9 @@ export default function Batalhar() {
 
       //Função para Subir de Nível - Inimigo
       const subirDeNivel_E = () => {
-        if(XP_E >= XP_AMOUNT_TO_LEVEL_UP_E){
+
+        setXP_E(XP_E + 100);
+        if(XP_E + 100 >= XP_AMOUNT_TO_LEVEL_UP_E){
           setTexto("O INIMIGO SUBIU DE NÍVEL!")
           console.log("Subiu de Nível!");
           setLevelE(Level_E + 1);
@@ -185,6 +189,7 @@ export default function Batalhar() {
             setTimeout(() => {
               // Coloque aqui a lógica da batalha que deseja executar após o tempo especificado
               setTexto("VOCÊ PERDEU A BATALHA!");
+              subirDeNivel_E();
               }, 3000); // Tempo em milissegundos
             setTimeout(() => {
               // Coloque aqui a lógica da batalha que deseja executar após o tempo especificado
